@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>rejilla</title>
-    <link rel="stylesheet" href="rejillaamsler.css">
+	<title>Rejilla Amsler</title>
 </head>
 <body>
-	<div id="external_div">
-		<div id="white_point"></div>
-		<div id="content"></div>
-	</div>
-</body>
+	<div class="container-fluid">	
+	<canvas id="amsler" width="1000" height="600">
+	Your browser does not support the canvas element.
+	</canvas>
 
-<script type="text/javascript">
-	document.body.onload = addElement;
-	function addElement () { 
-		var externalDiv = document.getElementById('external_div').firstChild.innerHTML;
-		var contentDiv = document.getElementById('content');
-		for ( i = 0; i <= 19; i++){
-	  		for ( j = 0; j <= 19; j ++){
-	  			var newDiv = document.createElement("div");
-	  			newDiv.setAttribute("id", "rejilla");
-	  			contentDiv.insertBefore(newDiv, externalDiv); 
-	  		}
-	  		var newBr = document.createElement("br");
-	  		contentDiv.insertBefore(newBr, externalDiv); 
-	  	}
-	}	
-</script>
+</div>
+	<script>
+		var canvas = document.getElementById("amsler");
+		var ctx = canvas.getContext("2d");
+		ctx.fillStyle = "black";
+		var n = 20;
+		var x = 0; 
+		var y = 0;
+		var l = 24;
+		var e = l + 2;
+		var w = n * n;
+		while( w > 0){
+			ctx.fillRect(e*x,y,l,l);
+			console.log('x: '+ e*x);
+			console.log('y: '+ y);
+			x++;
+			if(x == n){
+				x = 0; 
+				y = y + e;
+			} 			
+			w--; 
+		}
+		var center = canvas.getContext("2d");
+		center.beginPath();
+		center.fillStyle = 'white';
+		center.arc(260, 260, 10, 0, 360);
+		center.lineWidth = 0;
+		center.strokeStyle = 'white';
+		center.fill();
+		center.stroke();
+	</script>
+</body>
 </html>
