@@ -6,20 +6,26 @@
     <link rel="stylesheet" href="rejillaamsler.css">
 </head>
 <body>
-	<section id="content"></section>
+	<div id="external_div">
+		<div id="white_point"></div>
+		<div id="content"></div>
+	</div>
 </body>
+
 <script type="text/javascript">
 	document.body.onload = addElement;
 	function addElement () { 
-	  var currentDiv = document.getElementById("content"); 
-	  for ( i = 0; i <= 19; i++){
-	  	for ( j = 0; j <= 19; j ++){
-	  		var newDiv = document.createElement("div");
-	  		document.body.insertBefore(newDiv, currentDiv); 
+		var externalDiv = document.getElementById('external_div').firstChild.innerHTML;
+		var contentDiv = document.getElementById('content');
+		for ( i = 0; i <= 19; i++){
+	  		for ( j = 0; j <= 19; j ++){
+	  			var newDiv = document.createElement("div");
+	  			newDiv.setAttribute("id", "rejilla");
+	  			contentDiv.insertBefore(newDiv, externalDiv); 
+	  		}
+	  		var newBr = document.createElement("br");
+	  		contentDiv.insertBefore(newBr, externalDiv); 
 	  	}
-	  	var newBr = document.createElement("br");
-	  	document.body.insertBefore(newBr, currentDiv); 
-	  }
 	}	
 </script>
 </html>

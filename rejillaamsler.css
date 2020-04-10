@@ -1,8 +1,23 @@
-div {
-    width: 34px;
-    height: 34px;
+#rejilla {
+    width: 12px;
+    height: 14px;
     background: black;
-    border: white;
     display: inline-block;
     border-style: solid;
+    border-left: 3px solid white !important;
+    border-top: 0px !important;
+    border-bottom: 0px!important;
+}
+#white_point {
+	width: 15px;
+	height: 15px;
+	background-color: white;
+	margin-left: 669px;
+	margin-top: 170px;	
+	position:absolute;
+	z-index:1;
+	border-radius: 90px;
+}
+#external_div {
+	text-align: center;
 }
